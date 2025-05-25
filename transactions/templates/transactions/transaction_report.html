@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block head_title %}Transaction Report{% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto my-10 py-8 px-6 bg-white rounded-2xl shadow-md">
+  <h1 class="text-3xl font-extrabold text-center text-indigo-800 mb-6">
+    Transaction Report
+  </h1>
+  <hr class="mb-8 border-gray-300"/>
+
+  <!-- Filter Form -->
+  <form method="get" action="{% url 'transaction_report' %}" class="mb-8">
+    <div class="flex flex-wrap justify-center gap-4">
+      <div class="flex flex-col sm:flex-row items-center gap-2">
+        <label for="start_date" class="font-semibold">From:</label>
+        <input
+          type="date"
+          id="start_date"
+          name="start_date"
+          class="w-full sm:w-auto border border-gray-400 px-4 py-2 rounded-lg focus:ring-2 focus:ring-indigo-400"
+        />
+      </div>
+      <div class="flex flex-col sm:flex-row items-center gap-2">
+        <label for="end_date" class="font-semibold">To:</label>
+        <input
+          type="date"
+          id="end_date"
+          name="end_date"
+          class="w-full sm:w-auto border border-gray-400 px-4 py-2 rounded-lg focus:ring-2 focus:ring-indigo-400"
+        />
+      </div>
+      <div>
+        <button
+          type="submit"
+          class="bg-indigo-700 hover:bg-indigo-800 text-white font-bold px-6 py-2 rounded-lg transition"
+        >
+          Filter
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <!-- Transaction Table -->
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm table-auto border rounded-xl shadow">
+      <thead class="bg-gradient-to-r from-purple-700 to-indigo-700 text-white uppercase">
+        <tr>
+          <th class="px-6 py-3 text-left">Date</th>
+          <th class="px-6 py-3 text-left">Type</th>
+          <th class="px-6 py-3 text-left">Amount</th>
+          <th class="px-6 py-3 text-left">Balance After</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for transaction in object_list %}
+        <tr class="border-b hover:bg-gray-50">
+          <td class="px-6 py-4">
+            {{ transaction.timestamp|date:"F d, Y h:i A" }}
+          </td>
+          <td class="px-6 py-4">
+            <span class="px-3 py-1 rounded-full text-sm font-semibold
+              {% if transaction.get_transaction_type_display == 'Withdrawal' %}
+                bg-red-100 text-red-700
+              {% else %}
+                bg-green-100 text-green-700
+              {% endif %}">
+              {{ transaction.get_transaction_type_display }}
+            </span>
+          </td>
+          <td class="px-6 py-4 font-medium">
+            $ {{ transaction.amount|floatformat:2|intcomma }}
+          </td>
+          <td class="px-6 py-4 font-medium">
+            $ {{ transaction.balance_after_transaction|floatformat:2|intcomma }}
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="4" class="px-6 py-4 text-center text-gray-500 italic">
+            No transactions found for the selected date range.
+          </td>
+        </tr>
+        {% endfor %}
+        <tr class="bg-gray-900 text-white font-semibold">
+          <td colspan="3" class="px-6 py-4 text-right">Current Balance</td>
+          <td class="px-6 py-4">
+            $ {{ account.balance|floatformat:2|intcomma }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

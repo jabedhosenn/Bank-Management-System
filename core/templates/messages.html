@@ -1,0 +1,67 @@
+{% comment %} {% for message in messages %}
+
+<div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md mt-2" role="alert">
+    <div class="flex">
+        <div class="py-1"><svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
+        <div>
+            <p class="font-bold">Success!</p>
+            <p class="text-sm">{{ message }}</p>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+{% for message in messages %}  
+<div class="bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md mt-2" role="alert">
+    <div class="flex">
+        <div class="py-1"><svg class="fill-current h-6 w-6 text-red-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0zm1.414 14.586L9.414 16l-1.414-1.414L8.586 12l1.414 1.414L12.586 12l1.414 1.414zM12.586 8l-1.414-1.414L9.586 8l1.414 1.414L12.586 8z"/></svg></div>
+        <div>
+            <p class="font-bold">Error!</p>
+            <p class="text-sm">{{ message }}</p>
+        </div>
+    </div>
+</div> {% endcomment %}
+
+
+
+
+
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="
+        px-4 py-3 shadow-md mt-2 rounded-b border-t-4
+        {% if 'success' in message.tags %}
+            bg-teal-100 border-teal-500 text-teal-900
+        {% elif 'error' in message.tags %}
+            bg-red-100 border-red-500 text-red-900
+        {% elif 'warning' in message.tags %}
+            bg-yellow-100 border-yellow-500 text-yellow-900
+        {% elif 'info' in message.tags %}
+            bg-blue-100 border-blue-500 text-blue-900
+        {% else %}
+            bg-gray-100 border-gray-400 text-gray-800
+        {% endif %}
+    " role="alert">
+      <div class="flex">
+        <div class="py-1 mr-4">
+          <svg class="fill-current h-6 w-6 
+              {% if 'success' in message.tags %}text-teal-500
+              {% elif 'error' in message.tags %}text-red-500
+              {% elif 'warning' in message.tags %}text-yellow-500
+              {% elif 'info' in message.tags %}text-blue-500
+              {% else %}text-gray-500
+              {% endif %}
+            " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0zm1 15H9v-2h2zm0-4H9V5h2z" />
+          </svg>
+        </div>
+        <div>
+          <p class="font-bold capitalize">{{ message.tags }}</p>
+          <p class="text-sm">{{ message }}</p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+{% endif %}

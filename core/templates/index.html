@@ -1,0 +1,183 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block head_title %}Trust Bank LIMITED{% endblock %} {% block content %}
+{% comment %} <div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
+
+    
+    <div class="flex flex-col w-full lg:w-1/2 justify-center items-start pt-12 pb-24 px-6 bg-white rounded-2xl bg-opacity-70 mx-3">
+        <h1 class="font-bold text-4xl my-4">Welcome to Trust Bank</h1>
+        <p class="leading-normal mb-4">
+            This is a simple Trust Bank where you can deposit money, withdraw money, take loan. You can also create an account, login, logout. <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed nemo quaerat quo dicta, adipisci eum fuga ratione id numquam eius veniam placeat voluptatum, itaque tempora molestias vel, blanditiis fugiat ipsam!
+
+        </p>
+        <div class="flex flex-col w-full lg:w-1/2 justify-center items-start pt-12 pb-24 px-6 bg-white rounded-2xl bg-opacity-70 mx-3">
+            <a href="{% url 'register' %}" class="bg-blue-900 text-white rounded-none hover:bg-white hover:text-blue-900 hover:border-blue-900 shadow hover:shadow-lg py-2 px-4 border border-gray-900 hover:border-transparent">Register</a>
+        </div>
+    </div>
+    <div class="w-full lg:w-1/2 lg:py-6 text-center ">
+        <img class ="rounded-2xl" src ="{% static './img/bank.jpg' %}"/>
+    </div>
+</div> {% endcomment %}
+
+<div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
+    
+    <!-- Left Side: Text Content -->
+    <div class="flex flex-col w-full lg:w-1/2 justify-center items-start pt-12 pb-24 px-6 bg-white rounded-2xl bg-opacity-70 mx-3">
+        <h1 class="font-bold text-4xl my-4">Welcome to Trust Bank Limited</h1>
+        <p class="leading-relaxed text-gray-700 mb-6">
+            This is a simple Trust Bank where you can deposit money, withdraw money, and take loans.
+            You can also create an account, login, and logout. <br><br>
+            Whether you’re saving for the future, sending money to loved ones, or managing everyday finances, Trust Bank is here to help you with a user-friendly and secure interface. 
+            We prioritize your security and convenience with modern technologies and a commitment to financial inclusion. <br>
+            Join thousands of satisfied users who trust us with their financial goals. 
+            
+        </p>
+
+        <!-- Register Button -->
+        <a href="{% url 'register' %}" class="bg-blue-900 text-white hover:bg-white hover:text-blue-900 hover:border-blue-900 border border-transparent font-semibold py-2 px-6 rounded-md transition-all duration-300 shadow hover:shadow-lg">
+            Register
+        </a>
+    </div>
+
+    <!-- Right Side: Image -->
+    <div class="w-full lg:w-1/2 lg:py-6 text-center mt-8 md:mt-0">
+        <img class="rounded-2xl mx-auto max-w-full h-auto" src="{% static 'img/bank.jpg' %}" alt="Bank Image" />
+    </div>
+</div>
+
+<!-- About -->
+<section class="bg-gray-100 py-16 px-6 md:px-12 lg:px-24">
+    <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-gray-800 mb-6">About Trust Bank</h2>
+        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+            At <strong>Trust Bank</strong>, we believe in building a secure, transparent, and reliable digital banking experience for everyone. 
+            Our platform is designed to provide simple, efficient, and fast financial services — from opening an account to making transactions like deposits, withdrawals, and loans — all at your fingertips.
+        </p>
+        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+            Whether you’re saving for the future, sending money to loved ones, or managing everyday finances, Trust Bank is here to help you with a user-friendly and secure interface. 
+            We prioritize your security and convenience with modern technologies and a commitment to financial inclusion.
+        </p>
+        <p class="text-lg text-gray-700 leading-relaxed">
+            Join thousands of satisfied users who trust us with their financial goals. 
+            Experience banking that’s tailored to your lifestyle — smart, fast, and secure.
+        </p>
+    </div>
+</section>
+
+<!-- services -->
+ <section class="py-16 px-6 md:px-12 lg:px-24 bg-white">
+    <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-gray-800 mb-10">Our Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service 1 -->
+            <div class="bg-gray-100 rounded-2xl p-6 shadow hover:shadow-lg transition duration-300">
+                <div class="text-blue-900 mb-4">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 8c-1.657 0-3 1.343-3 3v1H8a1 1 0 100 2h1v1a3 3 0 006 0v-1h1a1 1 0 100-2h-1v-1c0-1.657-1.343-3-3-3z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Deposit Money</h3>
+                <p class="text-gray-700">Easily deposit money into your account with just a few clicks using our secure platform.</p>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="bg-gray-100 rounded-2xl p-6 shadow hover:shadow-lg transition duration-300">
+                <div class="text-blue-900 mb-4">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M17 9V7a4 4 0 00-8 0v2M5 12h14M12 16v4m-4-4h8" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Withdraw Money</h3>
+                <p class="text-gray-700">Withdraw funds securely anytime, anywhere, with full transparency and instant confirmation.</p>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="bg-gray-100 rounded-2xl p-6 shadow hover:shadow-lg transition duration-300">
+                <div class="text-blue-900 mb-4">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 8c-1.104 0-2 .896-2 2v2h4v-2c0-1.104-.896-2-2-2zm0-6C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Apply for Loan</h3>
+                <p class="text-gray-700">Get quick access to personal or business loans with competitive rates and easy approval processes.</p>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="bg-gray-100 rounded-2xl p-6 shadow hover:shadow-lg transition duration-300">
+                <div class="text-blue-900 mb-4">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 12l2 2 4-4m1-5H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Secure Account</h3>
+                <p class="text-gray-700">Your data is protected using advanced security measures including encryption and two-factor authentication.</p>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="bg-gray-100 rounded-2xl p-6 shadow hover:shadow-lg transition duration-300">
+                <div class="text-blue-900 mb-4">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M16 7a4 4 0 00-8 0v4H6a2 2 0 000 4h1v4a2 2 0 002 2h6a2 2 0 002-2v-4h1a2 2 0 000-4h-2V7z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Online Support</h3>
+                <p class="text-gray-700">Get round-the-clock support from our banking experts through chat, email, or phone.</p>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="bg-gray-100 rounded-2xl p-6 shadow hover:shadow-lg transition duration-300">
+                <div class="text-blue-900 mb-4">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M13 16h-1v-4h-1m4 4v-6a4 4 0 00-8 0v6a4 4 0 008 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Account Management</h3>
+                <p class="text-gray-700">Easily manage your personal information, passwords, and view your transaction history.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="bg-gray-100 py-16 px-6 md:px-12 lg:px-24">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-gray-800 mb-8">Contact Us</h2>
+        <p class="text-lg text-gray-700 mb-6">
+            Have questions or need assistance? Our team is always ready to help.
+        </p>
+
+        <div class="flex flex-col md:flex-row justify-center items-center gap-10 mt-8">
+            <!-- Email -->
+            <div class="flex items-center gap-4 bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+                <div class="text-left">
+                    <p class="text-gray-800 font-semibold">Email</p>
+                    <a href="mailto:trustbank@gmail.com" class="text-blue-900 hover:underline">trustbank@gmail.com</a>
+                </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="flex items-center gap-4 bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+                <div class="text-left">
+                    <p class="text-gray-800 font-semibold">Phone</p>
+                    <a href="tel:+8801884597899" class="text-blue-900 hover:underline">+880123456789</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
